@@ -1,6 +1,6 @@
 [tool.semantic_release]
 version_variable = [
-    "src/minha_lib/__init__.py:__version__",
+    "src/linceml/__init__.py:__version__",
 ]
 version_toml = [
     "pyproject.toml:project.version",
