@@ -1,0 +1,17 @@
+[tool.semantic_release]
+version_variable = [
+    "src/linceml/__init__.py:__version__",
+]
+version_toml = [
+    "pyproject.toml:project.version",
+]
+branch = "main"
+upload_to_pypi = false
+upload_to_release = true
+build_command = "pip install build && python -m build"
+
+# Configuração para subversionamento (Pre-releases)
+[tool.semantic_release.branches.develop]
+match = "develop"
+prerelease = true
+prerelease_token = "dev"
