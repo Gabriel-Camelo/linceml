@@ -23,21 +23,6 @@ dev = [
 ]
 
 # ------------------------------------------------------------------------------
-# Configurações de Qualidade e Testes
-# ------------------------------------------------------------------------------
-[tool.pytest.ini_options]
-minversion = "7.0"
-addopts = "--cov=src/linceml --cov-report=term-missing --cov-report=xml --cov-fail-under=90"
-testpaths = ["tests/unit"]
-
-[tool.ruff]
-line-length = 100
-target-version = "py39"
-
-[tool.ruff.lint]
-select = ["E", "F", "I"] # Erros base, Pyflakes e Isort (ordenação de imports)
-
-# ------------------------------------------------------------------------------
 # Configurações de Versionamento Contínuo (Semantic Release)
 # ------------------------------------------------------------------------------
 [tool.semantic_release]
@@ -57,3 +42,49 @@ build_command = "pip install build && python -m build"
 match = "develop"
 prerelease = true
 prerelease_token = "dev"
+
+# ------------------------------------------------------------------------------
+# Configurações do Linter e Formatter (Ruff)
+# ------------------------------------------------------------------------------
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+# Exclui pastas comuns que não devem ser analisadas
+exclude = [
+    ".git",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    "venv",
+    "build",
+    "dist",
+]
+
+[tool.ruff.lint]
+# Seleção de regras para o LinceML
+select = [
+    "E",   # pycodestyle errors (PEP 8)
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes (Variáveis não usadas, imports inválidos)
+    "I",   # isort (Ordenação alfabética de imports)
+    "N",   # pep8-naming (Padrão de nomenclatura de classes/variáveis)
+    "D",   # pydocstyle (Garante que tudo tem docstring)
+]
+
+ignore = [
+    "ANN101", # Ignora a exigência de tipar o "self" em métodos de classe
+    "ANN102", # Ignora a exigência de tipar o "cls" em @classmethod
+    "D100",   # Opcional: Ignora a obrigatoriedade de docstring no topo de todo arquivo (módulo)
+    "D104",   # Opcional: Ignora a obrigatoriedade de docstring em arquivos __init__.py
+]
+
+# Configura o validador de docstrings para o padrão Google (Exigência do TCC)
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"

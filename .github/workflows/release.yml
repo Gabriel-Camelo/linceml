@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     # Impede que múltiplos pushes simultâneos causem conflitos de versão no git
     concurrency: release
-    
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
