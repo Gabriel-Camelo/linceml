@@ -1,4 +1,4 @@
-name: Semantic Release
+name: Python Semantic Release
 
 on:
   push:
@@ -8,23 +8,32 @@ on:
 
 jobs:
   release:
+    name: Create Release and Publish
     runs-on: ubuntu-latest
+    # Impede que múltiplos pushes simultâneos causem conflitos de versão no git
     concurrency: release
-    permissions:
-      contents: write
-
+    
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0 # Obrigatório: traz todo o histórico de tags para o cálculo da versão
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.11"
+          cache: 'pip'
 
-      - name: Python Semantic Release
-        uses: python-semantic-release/python-semantic-release@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install Python Semantic Release
+        run: |
+          python -m pip install --upgrade pip
+          pip install python-semantic-release build
+
+      - name: Run Semantic Release
+        # O GITHUB_TOKEN é injetado automaticamente pelo Actions para criar a Release na aba do repositório
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # O comando 'version' lê o pyproject.toml, altera os arquivos, faz o commit, cria a tag e o GitHub Release
+          semantic-release version
