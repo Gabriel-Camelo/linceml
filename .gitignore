@@ -1,6 +1,7 @@
 # Environment
 .venv/
 .python-version
+.vscode/
 .pre-commit*
 
 # Byte-compiled / optimized / DLL files

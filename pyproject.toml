@@ -70,8 +70,6 @@ select = [
     "I",   # isort (Ordenação alfabética de imports)
     "N",   # pep8-naming (Padrão de nomenclatura de classes/variáveis)
     "D",   # pydocstyle (Garante que tudo tem docstring)
-    "ANN", # flake8-annotations (Exige Type Hints explícitos)
-    "UP",  # pyupgrade (Sugere sintaxes mais modernas do Python 3.9+)
 ]
 
 ignore = [

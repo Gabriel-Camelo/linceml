@@ -1,11 +1,11 @@
-"""
-LinceML
+"""LinceML.
+
 ========================
 
-A biblioteca LinceML é um projeto de framework destinado 
-ao monitoramento de qualidade e drift em ambientes de machine 
-learning. Desenvolvida com foco em leveza, robustez e 
-compatibilidade, a biblioteca é capaz de operar em ambientes 
+A biblioteca LinceML é um projeto de framework destinado
+ao monitoramento de qualidade e drift em ambientes de machine
+learning. Desenvolvida com foco em leveza, robustez e
+compatibilidade, a biblioteca é capaz de operar em ambientes
 locais utilizando Polars e ambientes de computação distribuida Spark.
 
 Exemplo básico de uso:
@@ -17,23 +17,8 @@ Módulos Disponíveis:
 * TODO Add modules list
 
 TODO: Add project URL
-Para a documentação completa, visite: <...>
+Para a documentação completa, visite: <...>.
 """
 
 __version__ = "0.1.0"
 __author__ = "Gabriel Camelo"
-__email__ = "gabrielcamelo.dev@gmail.com"
-
-# Importações que você deseja expor no nível principal da biblioteca
-# from .modulo1 import ClasseImportante
-# from .modulo2 import funcao_importante
-
-# Definir o que é exportado quando alguém faz `from sua_lib import *`
-# __all__ = [
-#     "ClasseImportante",
-#     "funcao_importante",
-# ]
-
-__all__ = [
-    "__version__"
-]
