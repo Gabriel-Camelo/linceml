@@ -23,21 +23,6 @@ dev = [
 ]
 
 # ------------------------------------------------------------------------------
-# Configurações de Qualidade e Testes
-# ------------------------------------------------------------------------------
-[tool.pytest.ini_options]
-minversion = "7.0"
-addopts = "--cov=src/linceml --cov-report=term-missing --cov-report=xml --cov-fail-under=90"
-testpaths = ["tests/unit"]
-
-[tool.ruff]
-line-length = 100
-target-version = "py39"
-
-[tool.ruff.lint]
-select = ["E", "F", "I"] # Erros base, Pyflakes e Isort (ordenação de imports)
-
-# ------------------------------------------------------------------------------
 # Configurações de Versionamento Contínuo (Semantic Release)
 # ------------------------------------------------------------------------------
 [tool.semantic_release]
