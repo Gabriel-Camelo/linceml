@@ -1,6 +1,7 @@
 # Environment
 .venv/
 .python-version
+.pre-commit*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
