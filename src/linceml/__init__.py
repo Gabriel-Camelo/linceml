@@ -20,5 +20,5 @@ TODO: Add project URL
 Para a documentação completa, visite: <...>.
 """
 
-__version__ = "0.1.0"
+__version__ = "1.0.0-dev.2"
 __author__ = "Gabriel Camelo"

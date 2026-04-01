@@ -1,6 +1,6 @@
 [project]
 name = "linceml"
-version = "0.1.0" # Atualizado dinamicamente pelo python-semantic-release
+version = "1.0.0-dev.2" # Atualizado dinamicamente pelo python-semantic-release
 description = "Arquitetura Cross-Engine para Observabilidade de Modelos de Machine Learning"
 authors = [{ name = "Gabriel Camelo", email = "gabrielcamelo.dev@gmail.com" }]
 readme = "README.md"
