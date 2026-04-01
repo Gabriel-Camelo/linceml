@@ -1,5 +1,47 @@
+[project]
+name = "linceml"
+version = "0.1.0" # Atualizado dinamicamente pelo python-semantic-release
+description = "Arquitetura Cross-Engine para Observabilidade de Modelos de Machine Learning"
+authors = [{ name = "Gabriel Camelo", email = "gabrielcamelo.dev@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pyspark>=3.3.0",
+    "polars>=0.20.0",
+    "pydantic>=2.5.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "behave>=1.2.6",
+    "ruff>=0.3.0",
+    "mkdocs-material",
+    "python-semantic-release>=8.7.0", # Adicionado para garantir compatibilidade local
+    "build>=1.0.3"                    # Necessário para o build_command
+]
+
+# ------------------------------------------------------------------------------
+# Configurações de Qualidade e Testes
+# ------------------------------------------------------------------------------
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "--cov=src/linceml --cov-report=term-missing --cov-report=xml --cov-fail-under=90"
+testpaths = ["tests/unit"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"] # Erros base, Pyflakes e Isort (ordenação de imports)
+
+# ------------------------------------------------------------------------------
+# Configurações de Versionamento Contínuo (Semantic Release)
+# ------------------------------------------------------------------------------
 [tool.semantic_release]
-version_variable = [
+version_variables = [
     "src/linceml/__init__.py:__version__",
 ]
 version_toml = [
